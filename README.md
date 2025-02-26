@@ -1,1 +1,109 @@
 # Quiz1-Samuel-Lennin
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de Dos Números (Decimales)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        #resultado {
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Suma de Dos Números (Decimales)</h1>
+        <form id="sumForm">
+            <label for="num1">Número 1:</label>
+            <input type="number" id="num1" step="any" required> <!-- step="any" permite decimales -->
+
+            <label for="num2">Número 2:</label>
+            <input type="number" id="num2" step="any" required> <!-- step="any" permite decimales -->
+
+            <button type="submit">Calcular Suma</button>
+        </form>
+
+        <h2>Resultado:</h2>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.getElementById("sumForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+
+            // Leer num1 y num2
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+            // Verificar si los valores son números válidos
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("resultado").textContent = "Por favor, ingresa números válidos.";
+                return;
+            }
+
+            // Calcular resultado
+            const resultado = num1 + num2;
+
+            // Escribir resultado
+            document.getElementById("resultado").textContent = `La suma es: ${resultado}`;
+        });
+    </script>
+</body>
+</html>
